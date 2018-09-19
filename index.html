@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='UTF-8'>
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div id="app">
+      <span @mouseover="changeText" @click="title='Text changed by clicking'">Hover me and click me</span>
+      <p> {{title}} </p>
+      <p :class="styleCSS"> Color: {{styleCSS}} </p>
+      Enter color name (grey, yellow, pink, blue):
+      <input type="text" @input="styleCSS = $event.target.value">
+      <br />
+      <br />
+      Enter number:
+      <input type="text" @input="increment ($event.target.value)">
+      <p>Your number is: {{value}}</p>
+      <p>Multiple two times: {{doubleValue}}</p>
+      <p>Multiple three times: {{tripleValue}}</p>
+      <button @click="show = !show">Flip</button>
+      <p v-if="show">Text, that displayed first</p>
+      <p v-else>Text, that displayed second</p>
+      <ul>
+        <li v-for="car in cars">Model: {{car.model}}, speed: {{car.speed}}</li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
